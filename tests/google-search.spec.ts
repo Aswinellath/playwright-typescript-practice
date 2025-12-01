@@ -17,6 +17,7 @@ test('Google search Playwright TS tutorial', async ({ page }) => {
 
   // Click first result
   const firstResult = page.locator('h3').first();
+  await expect(firstResult).toBeVisible();
   await firstResult.click();
 
   // Print title
