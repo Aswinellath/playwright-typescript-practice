@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test('Google search Playwright TS tutorial', async ({ page }) => {
   await page.goto('https://www.google.com');
@@ -20,5 +20,7 @@ test('Google search Playwright TS tutorial', async ({ page }) => {
   await firstResult.click();
 
   // Print title
+  // await expect(page.getByRole('heading', { name: 'TypeScript', exact: true })).toBeVisible();
+  await expect(page.locator('h1')).toContainText('TypeScript');
   console.log('Opened Page Title:', await page.title());
 });
